@@ -230,29 +230,7 @@ const Nav = () => {
                     </g>
                   </svg>
                 </span>
-                <span className="inline-block" aria-hidden="true">
-                  <svg
-                    width="19"
-                    height="12"
-                    viewBox="0 0 19 12"
-                    data-icon="arrowRight"
-                    className="fill-current"
-                  >
-                    <g
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.5"
-                    >
-                      <path d="M9.7 5.749H.75" />
-                      <path
-                        d="m9.7 10.75 7.937-5.001L9.7.748z"
-                        clip-rule="evenodd"
-                      />
-                    </g>
-                  </svg>
-                </span>
+                
               </span>
             </a>
           </ul>

@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 const Hero = () => {
-
     const marqueeRef = useRef(null);
     const marquee2Ref = useRef(null);
 
@@ -39,32 +38,35 @@ const Hero = () => {
         };
         const startAnimation = () => {
             reqId = requestAnimationFrame(animate);
-        }
+        };
         const handleResize = () => {
             cancelAnimationFrame(reqId);
-            startAnimation()
+            startAnimation();
         };
-        startAnimation()
-        window.addEventListener('resize', handleResize);
+        startAnimation();
+        window.addEventListener("resize", handleResize);
 
         return () => {
             cancelAnimationFrame(reqId);
-            window.removeEventListener('resize', handleResize);
+            window.removeEventListener("resize", handleResize);
         };
     }, []);
 
     const brands = [
-        { src: '/brand-1.Cil2Q_O1_INrEd.svg', width: 134, height: 28 },
-        { src: '/brand-2.D43_ebrS_2rb8KV.svg', width: 149, height: 36 },
-        { src: '/brand-3.Bv4BNxhE_1E4ent.svg', width: 133, height: 26 },
-        { src: '/brand-4.G1LDr9RH_ZhYXlk.svg', width: 103, height: 28 },
-        { src: '/brand-5.DZnUkPHX_2r6Pps.svg', width: 102, height: 32 },
-        { src: '/brand-6.BeV5PX0O_fOJou.svg', width: 99, height: 32 },
+        { src: "/brand-1.Cil2Q_O1_INrEd.svg", width: 134, height: 28 },
+        { src: "/brand-2.D43_ebrS_2rb8KV.svg", width: 149, height: 36 },
+        { src: "/brand-3.Bv4BNxhE_1E4ent.svg", width: 133, height: 26 },
+        { src: "/brand-4.G1LDr9RH_ZhYXlk.svg", width: 103, height: 28 },
+        { src: "/brand-5.DZnUkPHX_2r6Pps.svg", width: 102, height: 32 },
+        { src: "/brand-6.BeV5PX0O_fOJou.svg", width: 99, height: 32 },
     ];
 
     return (
         <div className="relative z-10 overflow-hidden flex justify-center m-auto">
-            <main id="main-content" className="relative z-10 h-full">
+            <main
+                id="main-content"
+                className="relative z-10 h-full mx-6 w-full flex flex-wrap justify-center"
+            >
                 <section className="section-sm pb-0 items-center justify-center flex relative h-dvh z-0 overflow-hidden">
                     <div className="absolute inset-0 z-0">
                         <img
@@ -164,31 +166,31 @@ const Hero = () => {
                                     </ul>
                                 </div>
                                 <div className="col-12 mt-8 p-4">
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-5 w-auto">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-5 w-auto">
                                         <img
                                             src="image1.jpg"
                                             alt="Image 1"
-                                            class="object-cover w-full h-auto rounded-lg bg-gray-400 col-span-2 row-span-3"
+                                            className="object-cover w-full h-auto rounded-lg bg-gray-300 col-span-2 row-span-3"
                                         />
                                         <img
                                             src="image2.jpg"
                                             alt="Image 2"
-                                            class="object-cover w-full h-20 rounded-lg bg-gray-400"
+                                            className="object-cover w-full h-20 rounded-lg bg-gray-300"
                                         />
                                         <img
                                             src="image3.jpg"
                                             alt="Image 3"
-                                            class="object-cover w-full h-20 rounded-lg bg-gray-400"
+                                            className="object-cover w-full h-20 rounded-lg bg-gray-300"
                                         />
                                         <img
                                             src="image4.jpg"
                                             alt="Image 4"
-                                            class="object-cover w-full h-20 rounded-lg bg-gray-400"
+                                            className="object-cover w-full h-20 rounded-lg bg-gray-300"
                                         />
                                         <img
                                             src="image5.jpg"
                                             alt="Image 5"
-                                            class="object-cover w-full h-20 rounded-lg bg-gray-400"
+                                            className="object-cover w-full h-20 rounded-lg bg-gray-300"
                                         />
                                     </div>
                                 </div>
@@ -201,72 +203,173 @@ const Hero = () => {
                     </div>
                 </section>
 
-                <section className="section">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-12" data-aos="fade-up-sm">
-                                <div className="text-center sm:flex">
-                                    <p className="w-full pb-3 text-center text-2xl/snug font-medium tracking-wide sm:whitespace-nowrap sm:pb-0">
+                <section class="section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 aos-init aos-animate" data-aos="fade-up-sm">
+                                <div class="text-center sm:flex">
+                                    <p class="w-full pb-3 text-center text-2xl/snug font-medium tracking-wide sm:whitespace-nowrap sm:pb-0">
                                         Trusted by thousands of companies worldwide
                                     </p>
                                 </div>
                             </div>
                             <div
-                                className="col-12 pt-14"
+                                class="col-12 pt-14 aos-init aos-animate"
                                 data-aos="fade-up-sm"
                                 data-aos-delay="200"
                             >
-                                <div className="relative flex gap-x-10 overflow-hidden before:pointer-events-none before:absolute before:left-0 before:z-10 before:h-full before:w-20 before:bg-gradient-to-r before:from-body before:to-transparent before:content-[''] after:pointer-events-none after:absolute after:right-0 after:h-full after:w-20 after:bg-gradient-to-r after:from-transparent after:to-body after:content-[''] md:gap-x-20 before:md:w-40 after:md:w-40">
-                                    <div
-                                        ref={marqueeRef}
-                                        className="marquee flex shrink-0 items-center justify-center gap-x-10 gap-y-6 opacity-100 md:gap-x-20 whitespace-nowrap"
-                                    >
-                                        {brands.map((brand, index) => (
-                                            <div className="h-10" key={index}>
-                                                <img
-                                                    src={brand.src}
-                                                    alt="brand logo"
-                                                    loading="lazy"
-                                                    decoding="async"
-                                                    className="h-full object-contain grayscale-0"
-                                                    width={brand.width}
-                                                    height={brand.height}
-                                                />
-                                            </div>
-                                        ))}
+                                <div class="relative flex gap-x-10 overflow-hidden before:pointer-events-none before:absolute before:left-0 before:z-10 before:h-full before:w-20 before:bg-gradient-to-r before:from-body before:to-transparent before:content-[''] after:pointer-events-none after:absolute after:right-0 after:h-full after:w-20 after:bg-gradient-to-r after:from-transparent after:to-body after:content-[''] md:gap-x-20 before:md:w-40 after:md:w-40">
+                                    <div class="marquee flex shrink-0 items-center justify-center gap-x-10 gap-y-6 opacity-100 md:gap-x-20">
+                                        <div class="h-10">
+                                            <img
+                                                src="/_astro/brand-1.Cil2Q_O1_INrEd.svg"
+                                                alt="brand logo"
+                                                loading="lazy"
+                                                decoding="async"
+                                                class="h-full object-contain grayscale-0"
+                                                width="134"
+                                                height="28"
+                                            />
+                                        </div>
+                                        <div class="h-10">
+                                            <img
+                                                src="/_astro/brand-2.D43_ebrS_2rb8KV.svg"
+                                                alt="brand logo"
+                                                loading="lazy"
+                                                decoding="async"
+                                                class="h-full object-contain grayscale-0"
+                                                width="149"
+                                                height="36"
+                                            />
+                                        </div>
+                                        <div class="h-10">
+                                            <img
+                                                src="/_astro/brand-3.Bv4BNxhE_1E4ent.svg"
+                                                alt="brand logo"
+                                                loading="lazy"
+                                                decoding="async"
+                                                class="h-full object-contain grayscale-0"
+                                                width="133"
+                                                height="26"
+                                            />
+                                        </div>
+                                        <div class="h-10">
+                                            <img
+                                                src="/_astro/brand-4.G1LDr9RH_ZhYXlk.svg"
+                                                alt="brand logo"
+                                                loading="lazy"
+                                                decoding="async"
+                                                class="h-full object-contain grayscale-0"
+                                                width="103"
+                                                height="28"
+                                            />
+                                        </div>
+                                        <div class="h-10">
+                                            <img
+                                                src="/_astro/brand-5.DZnUkPHX_2r6Pps.svg"
+                                                alt="brand logo"
+                                                loading="lazy"
+                                                decoding="async"
+                                                class="h-full object-contain grayscale-0"
+                                                width="102"
+                                                height="32"
+                                            />
+                                        </div>
+                                        <div class="h-10">
+                                            <img
+                                                src="/_astro/brand-6.BeV5PX0O_fOJou.svg"
+                                                alt="brand logo"
+                                                loading="lazy"
+                                                decoding="async"
+                                                class="h-full object-contain grayscale-0"
+                                                width="99"
+                                                height="32"
+                                            />
+                                        </div>
                                     </div>
                                     <div
-                                        ref={marquee2Ref}
-                                        className="marquee flex shrink-0 items-center justify-center gap-x-10 gap-y-6 opacity-100 md:gap-x-20 whitespace-nowrap"
+                                        class="marquee flex shrink-0 items-center justify-center gap-x-10 gap-y-6 opacity-100 md:gap-x-20"
                                         aria-hidden="true"
                                     >
-                                        {brands.map((brand, index) => (
-                                            <div className="h-10" key={index}>
-                                                <img
-                                                    src={brand.src}
-                                                    alt="brand logo"
-                                                    loading="lazy"
-                                                    decoding="async"
-                                                    className="h-full object-contain grayscale-0"
-                                                    width={brand.width}
-                                                    height={brand.height}
-                                                />
-                                            </div>
-                                        ))}
+                                        <div class="h-10">
+                                            <img
+                                                src="/_astro/brand-1.Cil2Q_O1_INrEd.svg"
+                                                alt="brand logo"
+                                                loading="lazy"
+                                                decoding="async"
+                                                class="h-full object-contain grayscale-0"
+                                                width="134"
+                                                height="28"
+                                            />
+                                        </div>
+                                        <div class="h-10">
+                                            <img
+                                                src="/_astro/brand-2.D43_ebrS_2rb8KV.svg"
+                                                alt="brand logo"
+                                                loading="lazy"
+                                                decoding="async"
+                                                class="h-full object-contain grayscale-0"
+                                                width="149"
+                                                height="36"
+                                            />
+                                        </div>
+                                        <div class="h-10">
+                                            <img
+                                                src="/_astro/brand-3.Bv4BNxhE_1E4ent.svg"
+                                                alt="brand logo"
+                                                loading="lazy"
+                                                decoding="async"
+                                                class="h-full object-contain grayscale-0"
+                                                width="133"
+                                                height="26"
+                                            />
+                                        </div>
+                                        <div class="h-10">
+                                            <img
+                                                src="/_astro/brand-4.G1LDr9RH_ZhYXlk.svg"
+                                                alt="brand logo"
+                                                loading="lazy"
+                                                decoding="async"
+                                                class="h-full object-contain grayscale-0"
+                                                width="103"
+                                                height="28"
+                                            />
+                                        </div>
+                                        <div class="h-10">
+                                            <img
+                                                src="/_astro/brand-5.DZnUkPHX_2r6Pps.svg"
+                                                alt="brand logo"
+                                                loading="lazy"
+                                                decoding="async"
+                                                class="h-full object-contain grayscale-0"
+                                                width="102"
+                                                height="32"
+                                            />
+                                        </div>
+                                        <div class="h-10">
+                                            <img
+                                                src="/_astro/brand-6.BeV5PX0O_fOJou.svg"
+                                                alt="brand logo"
+                                                loading="lazy"
+                                                decoding="async"
+                                                class="h-full object-contain grayscale-0"
+                                                width="99"
+                                                height="32"
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className=""></div>
+                        <div class=""></div>
                     </div>
                 </section>
 
-
-                <section class="section pt-0">
-                    <div class="container">
-                        <div class="section-title">
+                <section className="section pt-0">
+                    <div className="container">
+                        <div className="section-title">
                             <div
-                                class="col-10 xl:col-8 aos-init aos-animate"
+                                className="col-10 xl:col-8 aos-init aos-animate"
                                 data-aos="fade-up-sm"
                             >
                                 <p>How it Works</p>
@@ -278,21 +381,21 @@ const Hero = () => {
                                 </p>
                             </div>
                         </div>
-                        <div class="section-cards">
+                        <div className="section-cards">
                             <div
-                                class="card-container group aos-init aos-animate"
+                                className="card-container group aos-init aos-animate"
                                 data-aos="fade-up-sm"
                                 data-aos-delay="0"
                             >
-                                <div class="card relative min-h-full overflow-hidden">
-                                    <div class="icon-container flex h-16 w-16 overflow-hidden items-center justify-center">
-                                        <div class="h-16 w-16 transition duration-500 ease-out group-hover:-translate-y-full flex flex-col items-center">
-                                            <div class="min-w-14 flex justify-center items-center min-h-16">
+                                <div className="card relative min-h-full overflow-hidden">
+                                    <div className="icon-container flex h-16 w-16 overflow-hidden items-center justify-center">
+                                        <div className="h-16 w-16 transition duration-500 ease-out group-hover:-translate-y-full flex flex-col items-center">
+                                            <div className="min-w-14 flex justify-center items-center min-h-16">
                                                 <svg
                                                     width="0.97em"
                                                     height="1em"
                                                     viewBox="0 0 32 33"
-                                                    class="w-full icon"
+                                                    className="w-full icon"
                                                     data-icon="homepage/detection"
                                                 >
                                                     {" "}
@@ -321,14 +424,14 @@ const Hero = () => {
                                                 </svg>
                                             </div>
                                             <div
-                                                class="min-w-14 flex justify-center items-center min-h-16"
+                                                className="min-w-14 flex justify-center items-center min-h-16"
                                                 aria-hidden="true"
                                             >
                                                 <svg
                                                     width="0.97em"
                                                     height="1em"
                                                     viewBox="0 0 32 33"
-                                                    class=" icon"
+                                                    className=" icon"
                                                     data-icon="homepage/detection"
                                                 >
                                                     {" "}
@@ -338,27 +441,27 @@ const Hero = () => {
                                         </div>
                                     </div>
                                     <h5>Web/App Design</h5>
-                                    <p class="mt-[10px]">
+                                    <p className="mt-[10px]">
                                         Our system continuously monitors your network and data
                                         environments to detect any suspicious activities promptly.
                                     </p>
-                                    <div class="pointer-events-none absolute bottom-[-22%] right-[-40%] h-[180px] w-[335px] rotate-[-20deg] from-dark/0 to-primary opacity-0 blur-[80px] transition-opacity duration-300 bg-primary/15 group-hover:opacity-100"></div>
+                                    <div className="pointer-events-none absolute bottom-[-22%] right-[-40%] h-[180px] w-[335px] rotate-[-20deg] from-dark/0 to-primary opacity-0 blur-[80px] transition-opacity duration-300 bg-primary/15 group-hover:opacity-100"></div>
                                 </div>
                             </div>
                             <div
-                                class="card-container group aos-init aos-animate"
+                                className="card-container group aos-init aos-animate"
                                 data-aos="fade-up-sm"
                                 data-aos-delay="100"
                             >
-                                <div class="card relative min-h-full overflow-hidden">
-                                    <div class="icon-container flex h-16 w-16 overflow-hidden items-center justify-center">
-                                        <div class="h-16 w-16 transition duration-500 ease-out group-hover:-translate-y-full flex flex-col items-center">
-                                            <div class="min-w-14 flex justify-center items-center min-h-16">
+                                <div className="card relative min-h-full overflow-hidden">
+                                    <div className="icon-container flex h-16 w-16 overflow-hidden items-center justify-center">
+                                        <div className="h-16 w-16 transition duration-500 ease-out group-hover:-translate-y-full flex flex-col items-center">
+                                            <div className="min-w-14 flex justify-center items-center min-h-16">
                                                 <svg
                                                     width="0.97em"
                                                     height="1em"
                                                     viewBox="0 0 32 33"
-                                                    class="w-full icon"
+                                                    className="w-full icon"
                                                     data-icon="homepage/flow"
                                                 >
                                                     {" "}
@@ -378,14 +481,14 @@ const Hero = () => {
                                                 </svg>
                                             </div>
                                             <div
-                                                class="min-w-14 flex justify-center items-center min-h-16"
+                                                className="min-w-14 flex justify-center items-center min-h-16"
                                                 aria-hidden="true"
                                             >
                                                 <svg
                                                     width="0.97em"
                                                     height="1em"
                                                     viewBox="0 0 32 33"
-                                                    class=" icon"
+                                                    className=" icon"
                                                     data-icon="homepage/flow"
                                                 >
                                                     {" "}
@@ -395,28 +498,28 @@ const Hero = () => {
                                         </div>
                                     </div>
                                     <h5>Graphics Design</h5>
-                                    <p class="mt-[10px]">
+                                    <p className="mt-[10px]">
                                         We ensure that all sensitive data is encrypted both in
                                         transit and at rest, using industry-standard encryption
                                         protocols.
                                     </p>
-                                    <div class="pointer-events-none absolute bottom-[-22%] right-[-40%] h-[180px] w-[335px] rotate-[-20deg] from-dark/0 to-primary opacity-0 blur-[80px] transition-opacity duration-300 bg-primary/15 group-hover:opacity-100"></div>
+                                    <div className="pointer-events-none absolute bottom-[-22%] right-[-40%] h-[180px] w-[335px] rotate-[-20deg] from-dark/0 to-primary opacity-0 blur-[80px] transition-opacity duration-300 bg-primary/15 group-hover:opacity-100"></div>
                                 </div>
                             </div>
                             <div
-                                class="card-container group aos-init aos-animate"
+                                className="card-container group aos-init aos-animate"
                                 data-aos="fade-up-sm"
                                 data-aos-delay="200"
                             >
-                                <div class="card relative min-h-full overflow-hidden">
-                                    <div class="icon-container flex h-16 w-16 overflow-hidden items-center justify-center">
-                                        <div class="h-16 w-16 transition duration-500 ease-out group-hover:-translate-y-full flex flex-col items-center">
-                                            <div class="min-w-14 flex justify-center items-center min-h-16">
+                                <div className="card relative min-h-full overflow-hidden">
+                                    <div className="icon-container flex h-16 w-16 overflow-hidden items-center justify-center">
+                                        <div className="h-16 w-16 transition duration-500 ease-out group-hover:-translate-y-full flex flex-col items-center">
+                                            <div className="min-w-14 flex justify-center items-center min-h-16">
                                                 <svg
                                                     width="0.97em"
                                                     height="1em"
                                                     viewBox="0 0 32 33"
-                                                    class="w-full icon"
+                                                    className="w-full icon"
                                                     data-icon="homepage/update"
                                                 >
                                                     {" "}
@@ -437,14 +540,14 @@ const Hero = () => {
                                                 </svg>
                                             </div>
                                             <div
-                                                class="min-w-14 flex justify-center items-center min-h-16"
+                                                className="min-w-14 flex justify-center items-center min-h-16"
                                                 aria-hidden="true"
                                             >
                                                 <svg
                                                     width="0.97em"
                                                     height="1em"
                                                     viewBox="0 0 32 33"
-                                                    class=" icon"
+                                                    className=" icon"
                                                     data-icon="homepage/update"
                                                 >
                                                     {" "}
@@ -454,27 +557,27 @@ const Hero = () => {
                                         </div>
                                     </div>
                                     <h5>Branding</h5>
-                                    <p class="mt-[10px]">
+                                    <p className="mt-[10px]">
                                         In the event of a security incident, our automated response
                                         system promptly initiates protective measures.
                                     </p>
-                                    <div class="pointer-events-none absolute bottom-[-22%] right-[-40%] h-[180px] w-[335px] rotate-[-20deg] from-dark/0 to-primary opacity-0 blur-[80px] transition-opacity duration-300 bg-primary/15 group-hover:opacity-100"></div>
+                                    <div className="pointer-events-none absolute bottom-[-22%] right-[-40%] h-[180px] w-[335px] rotate-[-20deg] from-dark/0 to-primary opacity-0 blur-[80px] transition-opacity duration-300 bg-primary/15 group-hover:opacity-100"></div>
                                 </div>
                             </div>
                             <div
-                                class="card-container group aos-init aos-animate"
+                                className="card-container group aos-init aos-animate"
                                 data-aos="fade-up-sm"
                                 data-aos-delay="300"
                             >
-                                <div class="card relative min-h-full overflow-hidden">
-                                    <div class="icon-container flex h-16 w-16 overflow-hidden items-center justify-center">
-                                        <div class="h-16 w-16 transition duration-500 ease-out group-hover:-translate-y-full flex flex-col items-center">
-                                            <div class="min-w-14 flex justify-center items-center min-h-16">
+                                <div className="card relative min-h-full overflow-hidden">
+                                    <div className="icon-container flex h-16 w-16 overflow-hidden items-center justify-center">
+                                        <div className="h-16 w-16 transition duration-500 ease-out group-hover:-translate-y-full flex flex-col items-center">
+                                            <div className="min-w-14 flex justify-center items-center min-h-16">
                                                 <svg
                                                     width="1em"
                                                     height="1em"
                                                     viewBox="0 0 32 32"
-                                                    class="w-full icon"
+                                                    className="w-full icon"
                                                     data-icon="homepage/efficiency"
                                                 >
                                                     {" "}
@@ -494,14 +597,14 @@ const Hero = () => {
                                                 </svg>
                                             </div>
                                             <div
-                                                class="min-w-14 flex justify-center items-center min-h-16"
+                                                className="min-w-14 flex justify-center items-center min-h-16"
                                                 aria-hidden="true"
                                             >
                                                 <svg
                                                     width="1em"
                                                     height="1em"
                                                     viewBox="0 0 32 32"
-                                                    class=" icon"
+                                                    className=" icon"
                                                     data-icon="homepage/efficiency"
                                                 >
                                                     {" "}
@@ -511,27 +614,27 @@ const Hero = () => {
                                         </div>
                                     </div>
                                     <h5>Product Design</h5>
-                                    <p class="mt-[10px]">
+                                    <p className="mt-[10px]">
                                         In the event of a security incident, our automated response
                                         system promptly initiates protective measures.
                                     </p>
-                                    <div class="pointer-events-none absolute bottom-[-22%] right-[-40%] h-[180px] w-[335px] rotate-[-20deg] from-dark/0 to-primary opacity-0 blur-[80px] transition-opacity duration-300 bg-primary/15 group-hover:opacity-100"></div>
+                                    <div className="pointer-events-none absolute bottom-[-22%] right-[-40%] h-[180px] w-[335px] rotate-[-20deg] from-dark/0 to-primary opacity-0 blur-[80px] transition-opacity duration-300 bg-primary/15 group-hover:opacity-100"></div>
                                 </div>
                             </div>
                             <div
-                                class="card-container group aos-init aos-animate"
+                                className="card-container group aos-init aos-animate"
                                 data-aos="fade-up-sm"
                                 data-aos-delay="400"
                             >
-                                <div class="card relative min-h-full overflow-hidden">
-                                    <div class="icon-container flex h-16 w-16 overflow-hidden items-center justify-center">
-                                        <div class="h-16 w-16 transition duration-500 ease-out group-hover:-translate-y-full flex flex-col items-center">
-                                            <div class="min-w-14 flex justify-center items-center min-h-16">
+                                <div className="card relative min-h-full overflow-hidden">
+                                    <div className="icon-container flex h-16 w-16 overflow-hidden items-center justify-center">
+                                        <div className="h-16 w-16 transition duration-500 ease-out group-hover:-translate-y-full flex flex-col items-center">
+                                            <div className="min-w-14 flex justify-center items-center min-h-16">
                                                 <svg
                                                     width="1em"
                                                     height="1em"
                                                     viewBox="0 0 32 32"
-                                                    class="w-full icon"
+                                                    className="w-full icon"
                                                     data-icon="homepage/security"
                                                 >
                                                     {" "}
@@ -554,14 +657,14 @@ const Hero = () => {
                                                 </svg>
                                             </div>
                                             <div
-                                                class="min-w-14 flex justify-center items-center min-h-16"
+                                                className="min-w-14 flex justify-center items-center min-h-16"
                                                 aria-hidden="true"
                                             >
                                                 <svg
                                                     width="1em"
                                                     height="1em"
                                                     viewBox="0 0 32 32"
-                                                    class=" icon"
+                                                    className=" icon"
                                                     data-icon="homepage/security"
                                                 >
                                                     {" "}
@@ -571,27 +674,27 @@ const Hero = () => {
                                         </div>
                                     </div>
                                     <h5>Marketing Campaign</h5>
-                                    <p class="mt-[10px]">
+                                    <p className="mt-[10px]">
                                         Our system continuously monitors your network and data
                                         environments to detect any suspicious activities promptly.
                                     </p>
-                                    <div class="pointer-events-none absolute bottom-[-22%] right-[-40%] h-[180px] w-[335px] rotate-[-20deg] from-dark/0 to-primary opacity-0 blur-[80px] transition-opacity duration-300 bg-primary/15 group-hover:opacity-100"></div>
+                                    <div className="pointer-events-none absolute bottom-[-22%] right-[-40%] h-[180px] w-[335px] rotate-[-20deg] from-dark/0 to-primary opacity-0 blur-[80px] transition-opacity duration-300 bg-primary/15 group-hover:opacity-100"></div>
                                 </div>
                             </div>
                             <div
-                                class="card-container group aos-init aos-animate"
+                                className="card-container group aos-init aos-animate"
                                 data-aos="fade-up-sm"
                                 data-aos-delay="500"
                             >
-                                <div class="card relative min-h-full overflow-hidden">
-                                    <div class="icon-container flex h-16 w-16 overflow-hidden items-center justify-center">
-                                        <div class="h-16 w-16 transition duration-500 ease-out group-hover:-translate-y-full flex flex-col items-center">
-                                            <div class="min-w-14 flex justify-center items-center min-h-16">
+                                <div className="card relative min-h-full overflow-hidden">
+                                    <div className="icon-container flex h-16 w-16 overflow-hidden items-center justify-center">
+                                        <div className="h-16 w-16 transition duration-500 ease-out group-hover:-translate-y-full flex flex-col items-center">
+                                            <div className="min-w-14 flex justify-center items-center min-h-16">
                                                 <svg
                                                     width="1em"
                                                     height="1em"
                                                     viewBox="0 0 32 32"
-                                                    class="w-full icon"
+                                                    className="w-full icon"
                                                     data-icon="homepage/flexi"
                                                 >
                                                     {" "}
@@ -619,14 +722,14 @@ const Hero = () => {
                                                 </svg>
                                             </div>
                                             <div
-                                                class="min-w-14 flex justify-center items-center min-h-16"
+                                                className="min-w-14 flex justify-center items-center min-h-16"
                                                 aria-hidden="true"
                                             >
                                                 <svg
                                                     width="1em"
                                                     height="1em"
                                                     viewBox="0 0 32 32"
-                                                    class=" icon"
+                                                    className=" icon"
                                                     data-icon="homepage/flexi"
                                                 >
                                                     {" "}
@@ -636,78 +739,168 @@ const Hero = () => {
                                         </div>
                                     </div>
                                     <h5>Custom Designs</h5>
-                                    <p class="mt-[10px]">
+                                    <p className="mt-[10px]">
                                         We ensure that all sensitive data is encrypted both in
                                         transit and at rest, using industry-standard encryption
                                         protocols.
                                     </p>
-                                    <div class="pointer-events-none absolute bottom-[-22%] right-[-40%] h-[180px] w-[335px] rotate-[-20deg] from-dark/0 to-primary opacity-0 blur-[80px] transition-opacity duration-300 bg-primary/15 group-hover:opacity-100"></div>
+                                    <div className="pointer-events-none absolute bottom-[-22%] right-[-40%] h-[180px] w-[335px] rotate-[-20deg] from-dark/0 to-primary opacity-0 blur-[80px] transition-opacity duration-300 bg-primary/15 group-hover:opacity-100"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                <section class="pt-0">
-    <div class="container">
-        <div class="mb-14">
-            <div class="col-span-10 xl:col-span-8" data-aos="fade-up-sm">
-                <p>key Features</p>
-                <h2>In-Depth Explanation of Our Web Security Features</h2>
-                <p>Securing your digital world: your trusted partner in data protection with cutting-edge solutions for comprehensive data security.</p>
-            </div>
-        </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            <div class="bg-gray-100 max-w-[450px] md:max-w-full mx-auto" data-aos="fade-up-sm" data-aos-delay="0">
-                <div>
-                    <img src="/_astro/feature-1.OhF5VW4a_Z8eGa.webp" alt="feature" loading="lazy" decoding="async" class="rounded-[14px] mx-auto mb-8 w-full object-cover object-top" width="375" height="273"/>
-                    <div>
-                        <p class="px-2 py-1 text-sm bg-gray-800 inline-block rounded-full text-white">
-                            <span>Visitor History</span>
-                        </p>
-                        <h4 class="py-4">
-                            <a class="underline" href="/features/feature-1">
-                                <span class="underline">Regularly evaluates potential security risks</span>
-                            </a>
-                        </h4>
-                        <p class="mt-[10px] line-clamp-3">Securing your digital world: your trusted partner in data protection with cutting-edge solutions for comprehensive data security. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!</p>
+
+                <section className="m-auto ">
+                    <div className="container mx-auto">
+                        <div className="mb-14 section-title">
+                            <div className="col-span-10 xl:col-span-8" data-aos="fade-up-sm">
+                                <p className="text-lg font-semibold">Key Features</p>
+                                <h1 className="text-5xl ">Clientele</h1>
+                            </div>
+                        </div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
+                            <div
+                                className="bg-[#D3F5FF] rounded-xl max-w-[450px] md:max-w-full mx-auto p-4"
+                                data-aos="fade-up-sm"
+                                data-aos-delay="0"
+                            >
+                                <img
+                                    src="/_astro/feature-1.OhF5VW4a_Z8eGa.webp"
+                                    alt="feature"
+                                    loading="lazy"
+                                    decoding="async"
+                                    className="rounded-[14px] mx-auto mb-4 bg-white w-full object-cover object-top"
+                                    width="375"
+                                    height="273"
+                                />
+                                <p className="px-2 py-1 text-sm bg-gray-800 inline-block rounded-full text-white">
+                                    Visitor History
+                                </p>
+                                <h4 className="py-4">
+                                    <a
+                                        className="hover:underline decoration-blue-600 decoration-2"
+                                        href="/features/feature-1"
+                                    >
+                                        Regularly evaluates potential security risks
+                                    </a>
+                                </h4>
+                                <p className="mt-[10px] mb-16 line-clamp-3">
+                                    Securing your digital world: your trusted partner in data
+                                    protection with cutting-edge solutions for comprehensive data
+                                    security. Lorem ipsum dolor sit amet consectetur adipisicing
+                                    elit. Nemo vel ad consectetur ut aperiam...
+                                </p>
+                            </div>
+                            <div
+                                className="bg-[#DDD6FF] rounded-xl max-w-[450px] md:max-w-full mx-auto p-4"
+                                data-aos="fade-up-sm"
+                                data-aos-delay="100"
+                            >
+                                <img
+                                    src="/_astro/feature-2.wWn_eZH5_Z1LhdiD.webp"
+                                    alt="feature"
+                                    loading="lazy"
+                                    decoding="async"
+                                    className="rounded-[14px] mx-auto mb-4 bg-white w-full object-cover object-top"
+                                    width="375"
+                                    height="273"
+                                />
+                                <p className="px-2 py-1 text-sm bg-gray-800 inline-block rounded-full text-white">
+                                    Visitor History
+                                </p>
+                                <h4 className="py-4">
+                                    <a
+                                        className="hover:underline decoration-blue-600 decoration-2"
+                                        href="/features/feature-2"
+                                    >
+                                        Regularly evaluates potential security risks
+                                    </a>
+                                </h4>
+                                <p className="mt-[10px] mb-16 line-clamp-3">
+                                    Securing your digital world: your trusted partner in data
+                                    protection with cutting-edge solutions for comprehensive data
+                                    security. Lorem ipsum dolor sit amet consectetur adipisicing
+                                    elit. Nemo vel ad consectetur ut aperiam...
+                                </p>
+                            </div>
+                            <div
+                                className="bg-[#FAEFE8] rounded-xl max-w-[450px] md:max-w-full mx-auto p-4"
+                                data-aos="fade-up-sm"
+                                data-aos-delay="200"
+                            >
+                                <img
+                                    src="/_astro/feature-3.BKcI60zm_2d4v1R.webp"
+                                    alt="feature"
+                                    loading="lazy"
+                                    decoding="async"
+                                    className="rounded-[14px] mx-auto mb-4 bg-white w-full object-cover object-top"
+                                    width="375"
+                                    height="273"
+                                />
+                                <p className="px-2 py-1 text-sm bg-gray-800 inline-block rounded-full text-white">
+                                    Banners Clicks
+                                </p>
+                                <h4 className="py-4">
+                                    <a
+                                        className=" hover:underline decoration-blue-600 decoration-2"
+                                        href="/features/feature-3"
+                                    >
+                                        Regularly evaluates potential security risks
+                                    </a>
+                                </h4>
+                                <p className="mt-[10px] mb-16 line-clamp-3">
+                                    Securing your digital world: your trusted partner in data
+                                    protection with cutting-edge solutions for comprehensive data
+                                    security. Lorem ipsum dolor sit amet consectetur adipisicing
+                                    elit. Nemo vel ad consectetur ut aperiam...
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="bg-gray-100 max-w-[450px] md:max-w-full mx-auto" data-aos="fade-up-sm" data-aos-delay="100">
-                <div>
-                    <img src="/_astro/feature-2.wWn_eZH5_Z1LhdiD.webp" alt="feature" loading="lazy" decoding="async" class="rounded-[14px] mx-auto mb-8 w-full object-cover object-top" width="375" height="273"/>
-                    <div>
-                        <p class="px-2 py-1 text-sm bg-gray-800 inline-block rounded-full text-white">
-                            <span>Visitor History</span>
-                        </p>
-                        <h4 class="py-4">
-                            <a class="underline" href="/features/feature-2">
-                                <span class="underline">Regularly evaluates potential security risks</span>
-                            </a>
-                        </h4>
-                        <p class="mt-[10px] line-clamp-3">Securing your digital world: your trusted partner in data protection with cutting-edge solutions for comprehensive data security. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!</p>
+                </section>
+
+                <section className="m-auto flex flex-col justify-center items-center p-4">
+                    <div className="section-title mb-8">
+                        <div
+                            className="col-10 xl:col-span-8 aos-init aos-animate"
+                            data-aos="fade-up-sm"
+                        >
+                            <p className="text-md">Contact us</p>
+                            <h2 >Let's Talk</h2>
+                            
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="bg-purple-400 max-w-[450px] md:max-w-full mx-auto" data-aos="fade-up-sm" data-aos-delay="200">
-                <div>
-                    <img src="/_astro/feature-3.BKcI60zm_2d4v1R.webp" alt="feature" loading="lazy" decoding="async" class="rounded-[14px] mx-auto mb-8 w-full object-cover object-top" width="375" height="273"/>
-                    <div>
-                        <p class="px-2 py-1 text-sm bg-gray-800 inline-block rounded-full text-white">
-                            <span>Banners Clicks</span>
-                        </p>
-                        <h4 class="py-4">
-                            <a class="underline" href="/features/feature-3">
-                                <span class="underline">Regularly evaluates potential security risks</span>
-                            </a>
-                        </h4>
-                        <p class="mt-[10px] line-clamp-3">Securing your digital world: your trusted partner in data protection with cutting-edge solutions for comprehensive data security. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!</p>
+                    <div className="flex flex-col md:flex-row justify-evenly gap-8 items-ceter">
+                        <div className="flex flex-col items-center text-center p-4">
+                            <img
+                                src="user1.png"
+                                alt="user image"
+                                className="bg-gray-300 rounded-full h-40 w-40 mb-4"
+                            />
+                            <p>1. Write us about your idea</p>
+                        </div>
+                        <div className="flex flex-col items-center text-center p-4">
+                            <img
+                                src="user2.png"
+                                alt="user image"
+                                className="bg-gray-300 rounded-full h-40 w-40 mb-4"
+                            />
+                            <p>
+                                2. We will contact you with plans <br />  and will schedule 1-on-1
+                                appointments
+                            </p>
+                        </div>
+                        <div className="flex flex-col items-center text-center p-4">
+                            <img
+                                src="user3.png"
+                                alt="user image"
+                                className="bg-gray-300 rounded-full h-40 w-40 mb-4"
+                            />
+                            <p>3. We start crafting your idea into reality</p>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+                </section>
             </main>
         </div>
     );
