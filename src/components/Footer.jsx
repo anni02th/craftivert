@@ -40,7 +40,7 @@ const Footer = () => {
             </form>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 md:mt-0">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mt-8 md:mt-0">
             <div>
               <h3 className="text-lg font-medium text-white mb-4">Menu</h3>
               <ul>
@@ -77,7 +77,7 @@ const Footer = () => {
         </div>
 
         <div className="text-center text-sm text-gray-400 mt-10 md:mt-20 border-t border-gray-700 pt-4">
-          Copyright © 2024{" "}
+          Created in 2024{" "}
           <a href="https://aniketdmore.netlify.app" className="underline">
             Aniket
           </a>

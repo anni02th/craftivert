@@ -760,7 +760,7 @@ blockquote>p {
 }
 
 [data-aos=fade-up-sm] {
-  transform: translate3d(0,20px,0)
+  transform: translate3d(0,-20px,0)
 }
 
 [data-aos=fade-down-sm] {
