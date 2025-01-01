@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import CustomerReviews from "./Hero/Reviews";
 import Form from "./Hero/Form";
-import Hero from "./Hero/Hero";
 import HiW from "./Hero/HiW";
 import Client from "./Hero/Client";
-
+import Hero from "./Hero/hero";
+import 'aos/dist/aos.css';
 const Main = () => {
     const marqueeRef = useRef(null);
     const marquee2Ref = useRef(null);
@@ -57,7 +57,6 @@ const Main = () => {
         };
     }, []);
 
-
     return (
         <div className="relative z-10 overflow-hidden flex justify-center m-auto">
             <main
@@ -66,7 +65,7 @@ const Main = () => {
             >
                 <Hero/>
 
-                <section class="section">
+                <section class="section" data-aos="fade-up"> 
                     <div class="container">
                         <div class="row">
                             <div class="col-12 aos-init aos-animate" data-aos="fade-up-sm">
@@ -228,7 +227,7 @@ const Main = () => {
                     </div>
                 </section>
 
-                <HiW/>
+                <HiW />
 
                 <Client/>
 

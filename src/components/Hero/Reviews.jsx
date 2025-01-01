@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const reviews = [
     {
@@ -12,11 +12,11 @@ const reviews = [
     },
     {
         id: 2,
-        name: "Smith Lee",
-        role: "IT Director at HealthCare",
-        avatar: "/bs.png",
+        name: "Shubham Somani",
+        role: "Shop Owner",
+        avatar: "/bs.jpg",
         quote:
-            "Implementing this data security solution has been a game-changer for our company. The real-time threat detection and automated response features have significantly reduced our risk exposure.",
+            "The team demonstrates excellent learning skills and consistently delivers new and unique solutions. They are dedicated to learning and applying new concepts effectively. I appreciate how the team takes on additional responsibilities and goes the extra mile to ensure client satisfaction. Their proactive approach and commitment to innovation truly set them apart.",
         rating: 5,
     },
     {
@@ -35,7 +35,7 @@ const StarRating = ({ rating }) => {
     const emptyStars = 5 - fullStars;
 
     return (
-        <div className="flex">
+        <div className="flex ">
             {[...Array(fullStars)].map((_, i) => (
                 <svg
                     key={`full-${i}`}
@@ -64,9 +64,57 @@ const StarRating = ({ rating }) => {
 };
 
 const CustomerReviews = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const containerRef = useRef(null);
+    const intervalTime = 5000;
+    const isMobile = window.innerWidth < 768; // Simple check for mobile
+
+    useEffect(() => {
+        if (!isMobile || !containerRef.current) return;
+
+        const timer = setInterval(() => {
+            const nextIndex = (currentIndex + 1) % reviews.length;
+            const reviewWidth = containerRef.current.offsetWidth;
+            containerRef.current.scrollLeft = nextIndex * reviewWidth;
+            setCurrentIndex(nextIndex);
+        }, intervalTime);
+
+        return () => clearInterval(timer);
+    }, [currentIndex, isMobile]);
+
+    const handleTouchStart = useRef(null);
+    const handleTouchEnd = useRef(null);
+
+    const onTouchStart = (e) => {
+        handleTouchStart.current = e.touches[0].clientX;
+    };
+
+    const onTouchMove = (e) => {
+        handleTouchEnd.current = e.touches[0].clientX;
+    };
+
+    const onTouchEnd = () => {
+        if (!isMobile || !handleTouchStart.current || !handleTouchEnd.current || !containerRef.current) return;
+
+        const diffX = handleTouchStart.current - handleTouchEnd.current;
+        const reviewWidth = containerRef.current.offsetWidth;
+
+        if (diffX > 50) {
+            // Swipe left
+            setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, reviews.length - 1));
+            containerRef.current.scrollLeft += reviewWidth;
+        } else if (diffX < -50) {
+            // Swipe right
+            setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+            containerRef.current.scrollLeft -= reviewWidth;
+        }
+        handleTouchStart.current = null;
+        handleTouchEnd.current = null;
+    };
+
     return (
-        <section className="py-12 overflow-hidden">
-            <div className=" flex flex-col mx-auto px-4">
+        <section className="p-16 max-md:px-8 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+            <div className=" mx-auto px-4">
                 {/* Section Title */}
                 <div className="text-center mb-12 ">
                     <p className="inline-block text-md bg-[#a97eff1a] rounded-xl px-2 py-1 text-[#A97EFF]">Happy Customers</p>
@@ -74,23 +122,39 @@ const CustomerReviews = () => {
                         Customer Reviews
                     </h2>
                     <p className="text-gray-500 mt-2">
-                        Your Trusted Partner in Data Protection with Cutting-Edge Solutions
-                        for <br /> Comprehensive Data Security.
+                        Read what our customers have to say about our services.
                     </p>
                 </div>
 
-                {/* Reviews Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Reviews Container */}
+                <div
+                    ref={containerRef}
+                    className={` ${
+                        isMobile
+                            ? 'flex overflow-x-scroll snap-x scroll-smooth'
+                            : 'grid md:grid-cols-2 lg:grid-cols-3 gap-6'
+                    }`}
+                    onTouchStart={isMobile ? onTouchStart : undefined}
+                    onTouchMove={isMobile ? onTouchMove : undefined}
+                    onTouchEnd={isMobile ? onTouchEnd : undefined}
+                    style={isMobile ? { scrollSnapType: 'x mandatory' } : {}}
+                    data-aos="fade-up" data-aos-delay="200"
+                >
                     {reviews.map((review) => (
                         <div
                             key={review.id}
-                            className="flex flex-col bg-white p-6 rounded-xl shadow-md"
+                            className={`bg-white p-6 rounded-xl shadow-md ${
+                                isMobile ? 'flex-shrink-0 w-full snap-start' : ''
+                            }`}
+                            style={isMobile ? { minWidth: '100%' } : {}}
                         >
                             <div className="flex-1">
                                 <p className="text-gray-700 font-medium mb-4">
                                     <strong>{review.quote.split(".")[0]}.</strong>
                                 </p>
-                                <p className="text-gray-600">{review.quote.split(".")[1]}</p>
+                                {review.quote.split(".").length > 1 && (
+                                    <p className="text-gray-600">{review.quote.split(".")[1]}</p>
+                                )}
                             </div>
 
                             {/* Star Rating */}

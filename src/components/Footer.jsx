@@ -1,87 +1,98 @@
+import { Twitter, Instagram, Linkedin, Home,MessageCircleCode, FileText, Send } from "lucide-react";
 import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#101928] py-12">
+    <footer className="bg-black py-12">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row md:justify-between gap-8">
-          <div className="md:w-1/2">
-            <div className="flex gap-4"><a href="/" className="inline-block">
+        <div className="flex flex-col gap-8 justify-between items-center space-y-8 md:space-y-0">
+          {/* Logo and Company Name */}
+          <div className="flex items-center gap-4">
+            <a href="/" className="">
               <img
-                src='/logo.png'
+                src="/logo.png"
                 alt="Clarity"
                 loading="lazy"
                 decoding="async"
-                className="inline-block h-10 w-[40px]"
-                width="340"
+                className="h-10 w-auto"
+                width="auto"
                 height="80"
               />
             </a>
-            <h3 className="text-white">Craftivert</h3></div>
-            <p className="mt-6 text-gray-300 font-medium text-lg">
-              Subscribe to Our Newsletter!
-            </p>
-            <p className="mt-2 mb-6 text-gray-400">
-              Streamline operations with cutting-edge solutions that future-proof your business.
-            </p>
-            <form className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="form-input text-gray-700 w-full rounded-md bg-gray-700 px-3 py-2 placeholder-gray-500"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-blue-500 text-white rounded-md px-4 py-2 font-medium hover:bg-blue-600"
-              >
-                Subscribe
-              </button>
-            </form>
+            <h3 className="text-white text-xl font-bold">Craftivert</h3>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mt-8 md:mt-0">
-            <div>
-              <h3 className="text-lg font-medium text-white mb-4">Menu</h3>
-              <ul>
-                {["Home", "Features", "Company", "Pricing"].map((item) => (
-                  <li key={item} className="text-gray-300 hover:underline mb-2">
-                    <a href={`/${item.toLowerCase()}`}>{item}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Navigation Links */}
+          <div className="">
+            <ul className="text-white flex gap-4 flex-wrap justify-center">  
+              <li className="flex items-center gap-2 hover:text-[#9f6fff] transition-colors duration-300 cursor-pointer">
+                <a href="#home" className="inline-flex justify-center items-center gap-1">
+                <Home size={18} /><span>Home</span>
+                </a>
+              </li>
+              <li className="flex items-center gap-2 hover:text-[#9f6fff] transition-colors duration-300 cursor-pointer">
+                <a href="#feature" className="inline-flex justify-center items-center gap-1">
+                <FileText size={18} />
+                <span>Features</span>
+                </a>
+              </li>
+              <li className="flex items-center gap-2 hover:text-[#9f6fff] transition-colors duration-300 cursor-pointer">
+              <a href="#blogs" className="inline-flex justify-center items-center gap-1">
+              <MessageCircleCode size={18} />
+              <span>Blogs</span>
+              </a>
+              </li>
+              <li className="flex items-center gap-2 hover:text-[#9f6fff] transition-colors duration-300 cursor-pointer">
+                <a href="#contact" className="inline-flex justify-center items-center gap-1">
+                <Send size={18} />
+                <span>Contact</span>
+                </a>
+              </li>
+            </ul>
+          </div>
 
-            <div>
-              <h3 className="text-lg font-medium text-white mb-4">Info</h3>
-              <ul>
-                {["Blog", "Blog Details", "Contact"].map((item) => (
-                  <li key={item} className="text-gray-300 hover:underline mb-2">
-                    <a href={`/${item.toLowerCase()}`}>{item}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Decorative Image */}
+          <img 
+            src="svg.svg" 
+            alt="" 
+            width={100} 
+            className="my-12 hidden md:block"
+          />
 
-            <div>
-              <h3 className="text-lg font-medium text-white mb-4">Social Media</h3>
-              <ul>
-                {["Facebook", "Twitter", "GitHub", "LinkedIn"].map((item) => (
-                  <li key={item} className="text-gray-300 hover:underline mb-2">
-                    <a href={`https://${item.toLowerCase()}.com`}>{item}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Social Media Icons */}
+          <div className="flex gap-4">
+            <a 
+              href="https://twitter.com/craftivert" 
+              className="text-white hover:text-[#9f6fff] transition-colors duration-300"
+            >
+              <Twitter color="#ffffff" size={24} />
+            </a>
+            <a 
+              href="https://instagram.com/craftivert" 
+              className="text-white hover:text-[#9f6fff] transition-colors duration-300"
+            >
+              <Instagram color="#ffffff" size={24} />
+            </a>
+            <a 
+              href="https://linkedin.com/company/craftivert" 
+              className="text-white hover:text-[#9f6fff] transition-colors duration-300"
+            >
+              <Linkedin color="#ffffff" size={24} />
+            </a>
+          
           </div>
         </div>
 
+        {/* Footer Bottom */}
         <div className="text-center text-sm text-gray-400 mt-10 md:mt-20 border-t border-gray-700 pt-4">
           Created in 2024{" "}
-          <a href="https://aniketdmore.netlify.app" className="underline">
+          <a 
+            href="https://aniketdmore.netlify.app" 
+            className="underline hover:text-[#9f6fff] transition-colors duration-300"
+          >
             Aniket
           </a>
-          . All Rights Reserved
+          . All Rights Reserved Under Craftivert.
         </div>
       </div>
     </footer>
